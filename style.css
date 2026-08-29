@@ -1,0 +1,255 @@
+:root {
+  --bg: #1b1c24;
+  --panel: #24252f;
+  --text: #f1f1f5;
+  --muted: #9a9ab0;
+  --accent: #ff6b6b;
+  --accent-soft: #ffb3b3;
+  --break: #4ecdc4;
+  --long: #6b8cff;
+  --ring-track: #32333f;
+  --radius: 18px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(160deg, #1b1c24, #15161d);
+  color: var(--text);
+  font-family: "Segoe UI", system-ui, sans-serif;
+  padding: 24px;
+}
+
+.app {
+  background: var(--panel);
+  border-radius: var(--radius);
+  padding: 32px;
+  width: 100%;
+  max-width: 420px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 20px;
+}
+
+h1 {
+  font-size: 1.4rem;
+  margin: 0;
+}
+
+.stats {
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+#count {
+  font-weight: bold;
+  color: var(--accent-soft);
+}
+
+.mode-switch {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.mode-btn {
+  flex: 1;
+  padding: 8px 6px;
+  border-radius: 10px;
+  border: none;
+  background: #32333f;
+  color: var(--muted);
+  font-size: 0.78rem;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.mode-btn.active {
+  background: var(--accent);
+  color: white;
+}
+
+.timer-ring {
+  position: relative;
+  width: 220px;
+  height: 220px;
+  margin: 0 auto 24px;
+}
+
+.timer-ring svg {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.ring-bg {
+  fill: none;
+  stroke: var(--ring-track);
+  stroke-width: 10;
+}
+
+.ring-progress {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 10;
+  stroke-linecap: round;
+  stroke-dasharray: 565.5;
+  stroke-dashoffset: 0;
+  transition: stroke-dashoffset 0.3s linear, stroke 0.3s;
+}
+
+.time-display {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.6rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.controls {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-bottom: 28px;
+}
+
+.controls button {
+  padding: 10px 28px;
+  border-radius: 10px;
+  border: none;
+  font-size: 0.95rem;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+#startBtn {
+  background: var(--accent);
+  color: white;
+}
+
+#startBtn.running {
+  background: #3a3b46;
+  color: var(--text);
+}
+
+#resetBtn {
+  background: #32333f;
+  color: var(--muted);
+}
+
+.tasks h2 {
+  font-size: 0.95rem;
+  color: var(--muted);
+  margin: 0 0 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+#taskForm {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+#taskInput {
+  flex: 1;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid #3a3b46;
+  background: #1b1c24;
+  color: var(--text);
+  font-size: 0.9rem;
+}
+
+#taskInput:focus {
+  outline: 2px solid var(--accent);
+}
+
+#taskForm button {
+  padding: 10px 16px;
+  border-radius: 10px;
+  border: none;
+  background: #32333f;
+  color: var(--text);
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+#taskList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+#taskList li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  margin-bottom: 6px;
+  background: #1b1c24;
+}
+
+#taskList li.done span.text {
+  text-decoration: line-through;
+  color: var(--muted);
+}
+
+#taskList li .text {
+  flex: 1;
+  font-size: 0.9rem;
+  word-break: break-word;
+}
+
+#taskList li .pomo-count {
+  font-size: 0.75rem;
+  color: var(--accent-soft);
+  min-width: 28px;
+  text-align: right;
+}
+
+#taskList li button.remove {
+  background: none;
+  border: none;
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 1rem;
+  padding: 0 4px;
+}
+
+#taskList li button.remove:hover {
+  color: var(--accent);
+}
+
+/* Mode color themes */
+body.mode-short .ring-progress { stroke: var(--break); }
+body.mode-short .mode-btn.active { background: var(--break); }
+
+body.mode-long .ring-progress { stroke: var(--long); }
+body.mode-long .mode-btn.active { background: var(--long); }
+
+.pulse {
+  animation: pulse 0.6s ease;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+  100% { transform: scale(1); }
+}

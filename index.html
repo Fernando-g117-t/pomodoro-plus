@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pomodoro+</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app">
+    <header>
+      <h1>🍅 Pomodoro+</h1>
+      <div class="stats">
+        <span id="count">0</span> pomodoros hoy
+      </div>
+    </header>
+
+    <div class="mode-switch">
+      <button class="mode-btn active" data-mode="focus">Enfoque</button>
+      <button class="mode-btn" data-mode="short">Descanso corto</button>
+      <button class="mode-btn" data-mode="long">Descanso largo</button>
+    </div>
+
+    <div class="timer-ring">
+      <svg viewBox="0 0 200 200">
+        <circle class="ring-bg" cx="100" cy="100" r="90"></circle>
+        <circle class="ring-progress" id="ring" cx="100" cy="100" r="90"></circle>
+      </svg>
+      <div class="time-display" id="timeDisplay">25:00</div>
+    </div>
+
+    <div class="controls">
+      <button id="startBtn">Iniciar</button>
+      <button id="resetBtn">Reiniciar</button>
+    </div>
+
+    <section class="tasks">
+      <h2>Tareas</h2>
+      <form id="taskForm">
+        <input type="text" id="taskInput" placeholder="¿En qué vas a enfocarte?" autocomplete="off">
+        <button type="submit">Añadir</button>
+      </form>
+      <ul id="taskList"></ul>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
