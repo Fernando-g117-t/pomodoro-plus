@@ -119,6 +119,75 @@ h1 {
   letter-spacing: 1px;
 }
 
+.cat-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: -8px 0 20px;
+}
+
+.cat {
+  width: 96px;
+  height: auto;
+}
+
+.cat-caption {
+  margin: 4px 0 0;
+  font-size: 0.75rem;
+  color: var(--muted);
+  font-style: italic;
+}
+
+.cat-tail {
+  transform-origin: 88px 80px;
+  animation: cat-swish 3s ease-in-out infinite;
+}
+
+.cat-eye {
+  transform-origin: center;
+  animation: cat-eye-move 6s ease-in-out infinite;
+}
+
+.cat-eye.right {
+  animation-delay: 0.15s;
+}
+
+.cat-paw {
+  animation: cat-breathe 3.6s ease-in-out infinite;
+  transform-origin: center;
+}
+
+body.timer-running .cat-tail {
+  animation-duration: 1s;
+}
+
+body.timer-running .cat-caption::after {
+  content: "";
+}
+
+@keyframes cat-swish {
+  0%, 100% { transform: rotate(-6deg); }
+  50% { transform: rotate(10deg); }
+}
+
+@keyframes cat-eye-move {
+  0%, 6% { transform: translateX(0) scaleY(1); }
+  7% { transform: translateX(0) scaleY(0.1); }
+  9%, 40% { transform: translateX(0) scaleY(1); }
+  43% { transform: translateX(-1.4px) scaleY(1); }
+  50% { transform: translateX(-1.4px) scaleY(1); }
+  53% { transform: translateX(1.4px) scaleY(1); }
+  60% { transform: translateX(1.4px) scaleY(1); }
+  63%, 88% { transform: translateX(0) scaleY(1); }
+  90% { transform: translateX(0) scaleY(0.1); }
+  92%, 100% { transform: translateX(0) scaleY(1); }
+}
+
+@keyframes cat-breathe {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(1px); }
+}
+
 .controls {
   display: flex;
   gap: 12px;
