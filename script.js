@@ -23,6 +23,7 @@ const countDisplay = document.getElementById("count");
 const taskForm = document.getElementById("taskForm");
 const taskInput = document.getElementById("taskInput");
 const taskList = document.getElementById("taskList");
+const catCaption = document.getElementById("catCaption");
 
 ring.style.strokeDasharray = RING_CIRCUMFERENCE;
 
@@ -139,6 +140,8 @@ function startTimer() {
   state.running = true;
   startBtn.textContent = "Pausar";
   startBtn.classList.add("running");
+  document.body.classList.add("timer-running");
+  catCaption.textContent = "esperando contigo...";
   state.timerId = setInterval(tick, 1000);
 }
 
@@ -146,6 +149,8 @@ function stopTimer() {
   state.running = false;
   startBtn.textContent = "Iniciar";
   startBtn.classList.remove("running");
+  document.body.classList.remove("timer-running");
+  catCaption.textContent = "esperando...";
   clearInterval(state.timerId);
   state.timerId = null;
 }

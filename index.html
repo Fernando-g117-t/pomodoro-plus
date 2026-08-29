@@ -29,6 +29,36 @@
       <div class="time-display" id="timeDisplay">25:00</div>
     </div>
 
+    <div class="cat-wrap" aria-hidden="true">
+      <svg class="cat" id="cat" viewBox="0 0 120 100" xmlns="http://www.w3.org/2000/svg">
+        <path class="cat-tail" d="M88 80 C 106 76, 110 54, 94 44" fill="none" stroke="#f4c17a" stroke-width="8" stroke-linecap="round"/>
+        <ellipse class="cat-paw" cx="46" cy="92" rx="9" ry="6" fill="#f4c17a"/>
+        <ellipse class="cat-paw" cx="72" cy="92" rx="9" ry="6" fill="#f4c17a"/>
+        <ellipse cx="60" cy="70" rx="30" ry="24" fill="#f4c17a"/>
+        <circle cx="60" cy="38" r="21" fill="#f4c17a"/>
+        <polygon points="42,24 48,4 56,22" fill="#f4c17a"/>
+        <polygon points="78,24 72,4 64,22" fill="#f4c17a"/>
+        <polygon points="45,20 48,10 52,19" fill="#e88a9a"/>
+        <polygon points="75,20 72,10 68,19" fill="#e88a9a"/>
+        <line class="cat-whisker" x1="30" y1="40" x2="44" y2="38" stroke="#7a5230" stroke-width="1.2"/>
+        <line class="cat-whisker" x1="30" y1="46" x2="44" y2="45" stroke="#7a5230" stroke-width="1.2"/>
+        <line class="cat-whisker" x1="90" y1="40" x2="76" y2="38" stroke="#7a5230" stroke-width="1.2"/>
+        <line class="cat-whisker" x1="90" y1="46" x2="76" y2="45" stroke="#7a5230" stroke-width="1.2"/>
+        <g class="cat-eye left">
+          <ellipse cx="52" cy="37" rx="3.2" ry="4.2" fill="#2b2b2b"/>
+          <circle class="cat-eye-glint" cx="50.8" cy="35.3" r="1" fill="#fff"/>
+        </g>
+        <g class="cat-eye right">
+          <ellipse cx="68" cy="37" rx="3.2" ry="4.2" fill="#2b2b2b"/>
+          <circle class="cat-eye-glint" cx="66.8" cy="35.3" r="1" fill="#fff"/>
+        </g>
+        <polygon points="57,44 63,44 60,48" fill="#e88a9a"/>
+        <path d="M60 48 Q 56 53 51 51" fill="none" stroke="#7a5230" stroke-width="1.4" stroke-linecap="round"/>
+        <path d="M60 48 Q 64 53 69 51" fill="none" stroke="#7a5230" stroke-width="1.4" stroke-linecap="round"/>
+      </svg>
+      <p class="cat-caption" id="catCaption">esperando...</p>
+    </div>
+
     <div class="controls">
       <button id="startBtn">Iniciar</button>
       <button id="resetBtn">Reiniciar</button>
